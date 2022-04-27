@@ -12,11 +12,11 @@ contact: ""
 export default function AddEdit() {
 const [state, setState] = useState(initialState);
 const[data, setData] = useState({});
-const {name, email, contact] = state;
+const {name, email, contact} = state;
     return(
 <div style={{marginTop: "100px"}}>
-    <form style={{margin: auto, padding: "15px", maxWidth: "400px", alignContent: "center"}}>
-        
+    <form style={{margin: "auto", padding: "15px", maxWidth: "400px", alignContent: "center"}}>
+
 
     </form>
 </div>
