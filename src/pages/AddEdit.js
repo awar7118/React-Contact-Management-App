@@ -24,7 +24,7 @@ export default function AddEdit() {
             style={{margin: "auto", padding: "15px", maxWidth: "400px", alignContent: "center"}}
             onSubmit={handleSubmit}
             >
-                <label htmlFor="name">name</label>
+                <label htmlFor="name">Name</label>
                 <input 
                     type="text"
                     id="name"
