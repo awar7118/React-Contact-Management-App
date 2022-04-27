@@ -4,13 +4,21 @@ import './AddEdit.css'
 import fireDb from "../firebase";
 import { toast } from "react-toastify";
 
+const initialState = {
+name: "",
+email: "",
+contact: ""
+}
 export default function AddEdit() {
-    const initialState = {
-        
-    }
+const [state, setState] = useState(initialState);
+const[data, setData] = useState({});
+const {name, email, contact] = state;
     return(
-<div>
-<h2> Add Edit</h2>
+<div style={{marginTop: "100px"}}>
+    <form style={{margin: auto, padding: "15px", maxWidth: "400px", alignContent: "center"}}>
+        
+
+    </form>
 </div>
     )
 }
