@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {useHistory, useParams} from "react-router-dom"
 import './AddEdit.css'
 import fireDb from "../firebase";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
+
 
 const initialState = {
 name: "",
@@ -15,9 +16,31 @@ export default function AddEdit() {
     const[data, setData] = useState({});
     const {name, email, contact} = state;
 
-    const handleSubmit = () => {};
-    const handleInputChange = () => {};
+    const navigate = useNavigate();
 
+    const handleInputChange = (event) => {
+        const{name, value} = event.target
+        setState({...state, [name]: value})
+    };
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if(!name || !email || !contact){
+            toast.error("Please complete values in each input field")
+        }
+        else{
+
+            fireDb.child("contacts").push(state, (err) => {
+                if(err) {
+                    toast.error(err);
+                } else {toast.success("Contact Added Successfully")}
+            })
+            setTimeout(()=> navigate('/'))
+        }
+    };
+
+  
     return(
         <div style={{marginTop: "100px"}}>
             <form 
