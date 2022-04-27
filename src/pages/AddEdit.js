@@ -18,13 +18,13 @@ export default function AddEdit() {
 
     const navigate = useNavigate();
 
-    const handleInputChange = (event) => {
+    function handleInputChange(event) {
         const{name, value} = event.target
         setState({...state, [name]: value})
     };
 
 
-    const handleSubmit = (event) => {
+    function handleSubmit(event) {
         event.preventDefault();
         if(!name || !email || !contact){
             toast.error("Please complete values in each input field")
