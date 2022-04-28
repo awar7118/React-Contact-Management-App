@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './AddEdit.css'
 import fireDb from "../firebase";
 import { toast } from "react-toastify";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 const initialState = {
@@ -17,6 +17,35 @@ export default function AddEdit() {
     const {name, email, contact} = state;
 
     const navigate = useNavigate();
+
+    const{id} = useParams();
+
+    useEffect(()=> {
+        // DB name is contact
+        // snapshate is a callback.
+        fireDb.child("contacts").on("value", (snapshot) => {
+            if(snapshot.val() !== null) {
+                setData({...snapshot.val() })
+            } else{
+                setData({})
+            }
+        })
+
+        return () => {
+            setData ({})
+        }
+    }, [id])
+
+    useEffect(()=> {
+        if (id){
+            setState({...data[id]})
+        }else {
+            setState({...initialState})
+        }
+        return () => {
+            setState({...initialState})
+        }
+    },[id, data])
 
     function handleInputChange(event) {
         const{name, value} = event.target
@@ -53,7 +82,7 @@ export default function AddEdit() {
                     id="name"
                     name="name"
                     placeHolder="your name..."
-                    value = {name}
+                    value = {name|| ""}
                     onChange={handleInputChange}
                 ></input>
                 <label htmlFor="email">Email</label>
@@ -62,7 +91,7 @@ export default function AddEdit() {
                     id="email"
                     name="email"
                     placeHolder="your email..."
-                    value = {email}
+                    value = {email || ""}
                     onChange={handleInputChange}
                 ></input>
                 <label htmlFor="contact">Contact</label>
@@ -71,7 +100,7 @@ export default function AddEdit() {
                     id="contact"
                     name="contact"
                     placeHolder="your contact..."
-                    value = {contact}
+                    value = {contact || ""}
                     onChange={handleInputChange}
                 ></input>
 
