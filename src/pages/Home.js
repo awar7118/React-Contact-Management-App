@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import fireDb from "../firebase"
 import { Link } from "react-router-dom"
 import './Home.css'
+import { toast } from "react-toastify";
 
 export default function Home() {
     const[data, setData] = useState({})
@@ -21,6 +22,18 @@ export default function Home() {
             setData ({})
         }
     }, [])
+    const onDelete = (id) => {
+        if (window.confirm("Are you sure you would like to delete this contact?")){
+            fireDb.child(`contacts/${id}`).remove((err)=> {
+                if(err) {
+                    toast.error(err)
+                }
+                else {
+                    toast.success("contact deleted successfully")
+                }
+            })
+        }
+    }
     return(
 <div style={{marginTop: "100px"}}>
     <table className="styled-table">
@@ -57,7 +70,11 @@ export default function Home() {
                                         Edit
                                     </button>
                                 </Link>
-                                <button className="btn btn-delete"> Delete</button>
+                                <button className="btn btn-delete"
+                                onClick={()=> {
+                                    onDelete(id)
+                                }}
+                                > Delete</button>
                                 <Link to={`/view/${id}`}>
                                     <button className="btn btn-view">
                                         View
