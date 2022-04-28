@@ -57,12 +57,21 @@ export default function AddEdit() {
             toast.error("Please complete values in each input field")
         }
         else{
-
-            fireDb.child("contacts").push(state, (err) => {
-                if(err) {
-                    toast.error(err);
-                } else {toast.success("Contact Added Successfully")}
-            })
+            if(!id){
+                fireDb.child("contacts").push(state, (err) => {
+                    if(err) {
+                        toast.error(err);
+                    } else {toast.success("Contact Added Successfully")}
+                })
+            } else {
+                fireDb.child(`contacts/${id}`).set(state, (err) => {
+                    if(err) {
+                        toast.error(err);
+                    } else 
+                    {toast.success("Contact Updated Successfully")}
+                })
+            }
+            
             setTimeout(()=> navigate('/'))
         }
     };
