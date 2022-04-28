@@ -21,8 +21,6 @@ export default function AddEdit() {
     const{id} = useParams();
 
     useEffect(()=> {
-        // DB name is contact
-        // snapshate is a callback.
         fireDb.child("contacts").on("value", (snapshot) => {
             if(snapshot.val() !== null) {
                 setData({...snapshot.val() })
@@ -104,7 +102,7 @@ export default function AddEdit() {
                     onChange={handleInputChange}
                 ></input>
 
-                <input type="submit" value="save" ></input>
+                <input type="submit" value={id ? "Update" : "Save"} ></input>
             </form>
         </div>
     )
