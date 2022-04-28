@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import fireDb from "../firebase"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './Home.css'
 
 export default function Home() {
@@ -51,6 +51,11 @@ export default function Home() {
                             <td>  {data[id].name} </td>
                             <td>  {data[id].email} </td>
                             <td>  {data[id].contact} </td>
+                            <td> <Link to={`/update/${id}`}>
+                            <button className="btn btn-edit">
+                                Edit
+                            </button>
+                            </Link></td>
                     </tr>
                 )
             })}
