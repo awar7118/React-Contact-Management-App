@@ -25,20 +25,20 @@ export default function View() {
             <div className="card">
                         <div className="container">
                             <div className="card-header">
-                        <p>User Contact Detail</p> 
+                        <p>User Contact Details</p> 
                         </div>
                             <strong>Database ID: </strong>
                             <span>{id}</span>
                             <br></br>
                             <br></br>
-                            <strong>Name: </strong>
+                            <strong>Full Name: </strong>
                             <span>{user.name}</span>
                             <br></br>
                             <br></br>
                             <strong>Email: </strong>
                             <span>{user.email}</span>
                             <br></br><br></br>
-                            <strong>Contact: </strong>
+                            <strong>Contact Number : </strong>
                             <span>{user.contact}</span>
                             <br></br>
                             <br></br>

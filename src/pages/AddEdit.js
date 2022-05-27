@@ -88,7 +88,7 @@ export default function AddEdit() {
                     type="text"
                     id="name"
                     name="name"
-                    placeHolder="your name..."
+                    placeHolder="Your name..."
                     value = {name|| ""}
                     onChange={handleInputChange}
                 ></input>
@@ -97,16 +97,16 @@ export default function AddEdit() {
                     type="email"
                     id="email"
                     name="email"
-                    placeHolder="your email..."
+                    placeHolder="Your email..."
                     value = {email || ""}
                     onChange={handleInputChange}
                 ></input>
-                <label htmlFor="contact">Contact</label>
+                <label htmlFor="contact">Contact No. </label>
                 <input 
                     type="number"
                     id="contact"
                     name="contact"
-                    placeHolder="your contact..."
+                    placeHolder="Your contact number..."
                     value = {contact || ""}
                     onChange={handleInputChange}
                 ></input>
