@@ -6,7 +6,7 @@ import './View.css'
 export default function View() {
 
     const [user, setUser] = useState({})
-    // grabbig the id using the useparam hook we importaed above
+    // Grabbing the id using the useparam hook we imported above
     const {id} = useParams()
 
     useEffect(()=>{
@@ -27,7 +27,7 @@ export default function View() {
                             <div className="card-header">
                         <p>User Contact Detail</p> 
                         </div>
-                            <strong>ID: </strong>
+                            <strong>Database ID: </strong>
                             <span>{id}</span>
                             <br></br>
                             <br></br>

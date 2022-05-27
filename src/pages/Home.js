@@ -8,8 +8,7 @@ export default function Home() {
     const[data, setData] = useState({})
     // Useffect includes a query that gets the data from the realtime database/
     useEffect(()=> {
-        // DB name is contact
-        // snapshate is a callback.
+        // DB name is currently contacts
         fireDb.child("contacts").on("value", (snapshot) => {
             if(snapshot.val() !== null) {
                 setData({...snapshot.val() })
