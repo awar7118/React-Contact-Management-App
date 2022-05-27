@@ -39,16 +39,16 @@ export default function Home() {
         <thead>
             <tr>
                 <th style={{textAlign: "center"}}>
-                    No.
+                    #
                 </th>
                 <th style={{textAlign: "center"}}>
-                    Name
+                    Full Name
                 </th>
                 <th style={{textAlign: "center"}}>
-                    email
+                    Email
                 </th>
                   <th style={{textAlign: "center"}}>
-                    Contact
+                    Contact Number
                 </th>
                   <th style={{textAlign: "center"}}>
                     Action
