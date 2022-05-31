@@ -41,6 +41,9 @@ export default function Home() {
             })
         }
     }
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+      }
     return(
 <div>
         <div style={{marginTop: "100px"}}>
@@ -98,6 +101,7 @@ export default function Home() {
     <Pagination
     contactsPerPage={contactsPerPage}
     totalContacts = {Object.keys(data).length}
+    paginate={paginate}
     />
 </div>
 
