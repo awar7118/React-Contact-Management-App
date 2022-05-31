@@ -16,16 +16,17 @@
 .Header p.logo {
     font-size: 25px;
     font-weight: bold;
-    color: #4284f5;
+    color: #023047;
+    
 }
 
 .Header p:hover{
     background-color: #ddd;
-    color: #5d6770;
+    color: black;
 }
 
 .Header p.active{
-    background-color:dodgerblue;
+    background-color:#023047;
     color: white;
 }
 .header-right{

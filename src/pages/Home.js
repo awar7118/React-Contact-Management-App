@@ -8,11 +8,11 @@ import Pagination from "../components/Pagination";
 export default function Home() {
     const[data, setData] = useState({})
     const [currentPage, setCurrentPage] = useState(1);
-    const[contactsPerPage, setContactsPerPage] = useState(5)
+    const[contactsPerPage, setContactsPerPage] = useState(10)
     // Useffect includes a query that gets the data from the realtime database/
     useEffect(()=> {
         // DB name is currently contacts
-        fireDb.child("contacts").orderByChild('id').on("value", (snapshot) => {
+        fireDb.child("contacts").on("value", (snapshot) => {
             if(snapshot.val() !== null) {
                 setData({...snapshot.val() })
             } else{
@@ -23,7 +23,7 @@ export default function Home() {
         return () => {
             setData ({})
         }
-    }, [currentPage])
+    }, [])
     const indexOfLastContact = currentPage * contactsPerPage
     const indexOfFirstContact = indexOfLastContact - contactsPerPage
     const currentContacts = Object.keys(data).slice(indexOfFirstContact, indexOfLastContact)
@@ -44,7 +44,7 @@ export default function Home() {
       }
     return(
 <div>
-        <div style={{marginTop: "100px"}}>
+        <div style={{marginTop: "80px"}}>
         <table className="styled-table">
             <thead>
                 <tr>
@@ -66,10 +66,10 @@ export default function Home() {
                 </tr >
             </thead>
             <tbody>
-                {Object.keys(data).map((id, index)=> {
+                {currentContacts.map((id, index)=> {
                     return (
                         <tr key={id}>
-                            <th scope="row"> {index+1} </th>
+                            <th scope="row"> {(indexOfLastContact + index + 1) - contactsPerPage } </th>
                                 <td>  {data[id].name} </td>
                                 <td>  {data[id].email} </td>
                                 <td>  {data[id].contact} </td>
