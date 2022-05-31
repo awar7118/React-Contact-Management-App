@@ -25,7 +25,7 @@ export default function Home() {
     }, [])
     const indexOfLastContact = currentPage * contactsPerPage
     const indexOfFirstContact = indexOfLastContact - contactsPerPage
-    
+    const currentContacts = data.slice(indexOfFirstContact, indexOfLastContact)
     const onDelete = (id) => {
         if (window.confirm("Are you sure you would like to delete this contact?")){
             fireDb.child(`contacts/${id}`).remove((err)=> {
