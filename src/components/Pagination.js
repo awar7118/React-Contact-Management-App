@@ -5,7 +5,6 @@ const pageNumbers = [];
 for (let i=1; i <= Math.ceil(totalContacts/contactsPerPage); i++){
     pageNumbers.push(i)
 }
-// console.log(pageNumbers.length)
 return ( 
     <nav>
         <ul className='pagination' >

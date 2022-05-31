@@ -24,8 +24,6 @@ export default function Home() {
             setData ({})
         }
     }, [currentPage])
-    console.log(data)
-    console.log("typeofline", typeof data)
     const indexOfLastContact = currentPage * contactsPerPage
     const indexOfFirstContact = indexOfLastContact - contactsPerPage
     const currentContacts = Object.keys(data).slice(indexOfFirstContact, indexOfLastContact)
