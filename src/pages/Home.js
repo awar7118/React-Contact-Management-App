@@ -8,11 +8,11 @@ import Pagination from "../components/Pagination";
 export default function Home() {
     const[data, setData] = useState({})
     const [currentPage, setCurrentPage] = useState(1);
-    const[contactsPerPage, setContactsPerPage] = useState(10)
+    const[contactsPerPage, setContactsPerPage] = useState(5)
     // Useffect includes a query that gets the data from the realtime database/
     useEffect(()=> {
         // DB name is currently contacts
-        fireDb.child("contacts").on("value", (snapshot) => {
+        fireDb.child("contacts").orderByChild('id').on("value", (snapshot) => {
             if(snapshot.val() !== null) {
                 setData({...snapshot.val() })
             } else{
