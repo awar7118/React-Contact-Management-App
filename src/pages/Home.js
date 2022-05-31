@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 
 export default function Home() {
     const[data, setData] = useState({})
+    const [currentPage, setCurrentPage] = useState(1);
+    const[contactsPerPage, setContactsPerPage] = useState(10)
     // Useffect includes a query that gets the data from the realtime database/
     useEffect(()=> {
         // DB name is currently contacts
@@ -21,6 +23,9 @@ export default function Home() {
             setData ({})
         }
     }, [])
+    const indexOfLastContact = currentPage * contactsPerPage
+    const indexOfFirstContact = indexOfLastContact - contactsPerPage
+    
     const onDelete = (id) => {
         if (window.confirm("Are you sure you would like to delete this contact?")){
             fireDb.child(`contacts/${id}`).remove((err)=> {
