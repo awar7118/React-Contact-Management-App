@@ -3,6 +3,7 @@ import fireDb from "../firebase"
 import { Link } from "react-router-dom"
 import './Home.css'
 import { toast } from "react-toastify";
+import Pagination from "../components/Pagination";
 
 export default function Home() {
     const[data, setData] = useState({})
@@ -90,6 +91,10 @@ export default function Home() {
             })}
         </tbody>
     </table>
+    <Pagination
+    contactsPerPage={contactsPerPage}
+    totalContacts = {data.length}
+    />
 </div>
     )
 }
