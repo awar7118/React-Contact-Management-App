@@ -23,7 +23,7 @@ export default function Home() {
         return () => {
             setData ({})
         }
-    }, [])
+    }, [currentPage])
     console.log(data)
     console.log("typeofline", typeof data)
     const indexOfLastContact = currentPage * contactsPerPage
