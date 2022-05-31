@@ -19,9 +19,8 @@ export default function View() {
             }
         })
     },[id])
-    console.log("user", user)
     return(
-        <div style={{marginTop: "150px"}}>
+        <div style={{marginTop: "120px"}}>
             <div className="card">
                         <div className="container">
                             <div className="card-header">

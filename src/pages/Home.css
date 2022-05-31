@@ -7,7 +7,7 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 .styled-table thead tr{
-    background: #009879;
+    background: #023047;
     color: #ffffff;
     text-align: left;
 }
@@ -45,7 +45,7 @@
     background-color: #008cba
 }
 .btn-delete {
-    background-color: #f44336
+    background-color: #c5352a
 }
 .btn-view {
     background-color:#e7e7e7;
