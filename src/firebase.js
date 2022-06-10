@@ -2,8 +2,8 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_GjmYED5xqGdqPm8gvkaSg3ntFJdnTPw",
-  authDomain: "react-contactsss.firebaseapp.com",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
   databaseURL: "https://react-contactsss-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "react-contactsss",
   storageBucket: "react-contactsss.appspot.com",
